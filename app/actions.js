@@ -2,19 +2,21 @@
 
 module.exports = {
  
-  UPVOTE: 'UPVOTE',
+  ADD_STOCK: 'ADD_STOCK',
   
-  DOWNVOTE: 'DOWNVOTE',
+  DELETE_STOCK: 'DELETE_STOCK',
 
-  upvote: function() {
+  add_stock: function(stock) {
     return {
-      type: this.UPVOTE
+      type: this.ADD_STOCK,
+      stock
     }
   },
 
-  downvote: function() {
+  delete_stock: function(stock) {
     return {
-      type: this.DOWNVOTE
+      type: this.DELETE_STOCK,
+      stock
     }
   }
   

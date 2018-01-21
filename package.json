@@ -24,7 +24,10 @@
     "style-loader": "^0.19.1",
     "mongodb": "^3.0.1",
     "mongoose": "^5.0.0",
-    "body-parser": "^1.18.2"
+    "body-parser": "^1.18.2",
+    "yahoo-stocks": "^2.0.1",
+    "socket.io": "^2.0.4",
+    "react-highcharts": "^15.0.0"
   },
   "engines": {
     "node": "8.x"

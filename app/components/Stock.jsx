@@ -13,7 +13,7 @@ class Stock extends React.Component {
   render() {
       return (
         <div className="stock_div">
-          <h1>Stock</h1>
+          <h1>{this.props.symbol}</h1>
         </div>
       );
     }

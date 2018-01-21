@@ -1,6 +1,6 @@
 const { connect } = require('react-redux');
 const actions = require('../actions');
-const Stocks = require('../components/Stocks');
+const AddStockBlock = require('../components/AddStockBlock');
 /**************************************************/
 /**************************************************/
 /*                Stocks Controller               */
@@ -23,9 +23,9 @@ const mapDispatchToProps = function(dispatch) {
   }
 }
 
-const StocksCtrl = connect(
+const AddStockBlockCtrl = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Stocks);
+)(AddStockBlock);
 
-module.exports = StocksCtrl;
+module.exports = AddStockBlockCtrl;

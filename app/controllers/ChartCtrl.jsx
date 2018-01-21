@@ -14,11 +14,11 @@ const mapStateToProps = function(state) {
 
 const mapDispatchToProps = function(dispatch) {
   return {
-    add_user: function(place, user) {
-      dispatch(actions.add_user(place, user))
+    add_stock: function(stock) {
+      dispatch(actions.add_stock(stock))
     },
-    delete_user: function(place, user) {
-      dispatch(actions.delete_user(place, user))
+    delete_stock: function(stock) {
+      dispatch(actions.delete_stock(stock))
     }
   }
 }

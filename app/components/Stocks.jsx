@@ -3,7 +3,7 @@ const { connect } = require('react-redux');
 const Link = require('react-router-dom').Link
 const style = require('../styles/Stocks');
 /**************************************/
-const AddStockBlock = require('./AddStockBlock');
+const AddStockBlockCtrl = require('../controllers/AddStockBlockCtrl');
 const Stock = require('./Stock');
 
 /* the Stocks component for concatenating AddStokeBlock and list of Stocks */
@@ -11,14 +11,24 @@ class Stocks extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      stocks: this.props.state
     };
   }
+  /**************************************/
+  componentWillReceiveProps(nextprops) {
+    this.setState({
+          ["stocks"]: nextprops.state
+           });
+  }
+  /**************************************/
   render() {
+      let itrArray = Object.values(this.state.stocks);
+      let stock_list = itrArray.map((e) => <Stock key={e.stock} symbol={e.stock}/>);
       return (
         <div className="stocks_div">
-          <AddStockBlock />
+          <AddStockBlockCtrl />
           <div className="stock_list">
-            <Stock />
+            {stock_list}
           </div>
         </div>
       );

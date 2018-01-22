@@ -1,6 +1,25 @@
 .AddStockBlock_div {
-  background-color: blue;
-  width: 50%;
+  background-color: #ffd53a;
+  width: 46.6%;
   height: 100%;
+  border-right: 50px double black;
   float: left;
+  border-bottom-left-radius: 200px;
+  border-top-left-radius: 200px;
+}
+
+.add_btn {
+    height: 30px;
+    background: black;
+    color: #ffd53a;
+    font-size: 16px;
+    margin-left: 10px;
+    font-weight: 900;
+}
+
+.search_input {
+    width: 300px;
+    height: 20px;
+    margin-left: 150px;
+    margin-top: 140px;
 }

@@ -64,4 +64,5 @@ let store;
     });
     socket.on('delete_user', function (stock) {
       console.log("delete " + stock);
+      store.dispatch(actions.delete_stock(stock))
     });

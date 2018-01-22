@@ -9,9 +9,11 @@ function votes(state = [], action) {
         state.push({stock: action.stock});
       return Object.assign({}, state);
     case DELETE_STOCK:
+        state =  Object.values(state);
         for(let i = 0; i < state.length; i++) {
           if(state[i]["stock"] == action.stock) {
-            state.splice(i, 1);
+            let sp = state.splice(i, 1);
+            console.log(sp);
               return Object.assign({}, state);
           }
         }   

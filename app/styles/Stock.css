@@ -1,0 +1,17 @@
+.stock {
+    background: #ff6666;
+    width: 70%;
+    text-align: center;
+    margin: auto;
+    margin-top: 10px;
+    border-left: 10px solid #7d7694;
+}
+
+span {
+  float: right;
+  margin-right: 10px;
+}
+
+span:hover {
+  cursor: pointer;
+}

@@ -11,7 +11,7 @@ class AddStockBlock extends React.Component {
     super(props);
     this.state = {
       stock: "",
-      error: null
+      error: null 
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleAddStock = this.handleAddStock.bind(this);
@@ -48,12 +48,12 @@ class AddStockBlock extends React.Component {
         let response = JSON.parse(this.responseText);
           if(response.hasOwnProperty("error")) {
             that.setState({
-              ["error"]: "Stock not found"
+              ["stock"]: "Stock not found or already exists"
             });
           }
           else {
             that.setState({
-              ["error"]: ""
+              ["stock"]: ""
             });
           console.log(response);
             // listener on CONNECTION
@@ -68,9 +68,8 @@ class AddStockBlock extends React.Component {
   render() {
       return (
         <div className="AddStockBlock_div">
-              {this.state.error}
-              <input type="text" value={this.state.value} onChange={this.handleChange} size="40"/>
-              <button onClick={this.handleAddStock}>AddStockBlock</button>
+              <input type="text" value={this.state.stock} onChange={this.handleChange} className="search_input"/>
+              <button onClick={this.handleAddStock} className="add_btn">AddStockBlock</button>
         </div>
       );
     }

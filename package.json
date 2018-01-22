@@ -27,7 +27,8 @@
     "body-parser": "^1.18.2",
     "yahoo-stocks": "^2.0.1",
     "socket.io": "^2.0.4",
-    "react-highcharts": "^15.0.0"
+    "react-highcharts": "^15.0.0",
+    "yahoo-finance": "^0.3.5"
   },
   "engines": {
     "node": "8.x"

@@ -6,6 +6,7 @@ var server = require('http').Server(app);
 var io = require('socket.io')(server);
 // yahoo API
 const {lookup, history} = require('yahoo-stocks');
+const yahooFinance = require('yahoo-finance'); 
 // dotenv
 require('dotenv').config();
 // body-parser
@@ -79,24 +80,46 @@ app.post("/add-stock", function(request, response) {
       /******************/
       // add stock into DB
       /******************/
-      let obj = {stock: res.symbol};
-      let stock = new stockModel(obj);
-      stock.save(function (err) {
-        if (!err) {
-          response.json(res);;
-        }
-        else {
-          response.json({error: "not found"});
-        }
-      });
+          // check if stock already exists
+          stockModel.findOne({stock: request.body["stock"]}, (err, doc) => {
+              if(doc === null) {
+                 let obj = {stock: res.symbol};
+                  let stock = new stockModel(obj);
+                  stock.save(function (err) {
+                    if (!err) {
+                      response.json(res);;
+                    }
+                    else {
+                      response.json({error: "not found"});
+                    }
+                  });
+              }
+              else {
+                response.json({error: "not found"});
+              }
+          });
       /******************/
     });
   setTimeout(() => {if(!isFound) response.json({error: "not found"})}, 1000);
+});
+/***********************************/
+app.post("/delete-stock", function(request, response) {
+    stockModel.remove({stock: request.body["stock"]}, (err) => {if(!err) response.json({error: "zero"})});
 });
 /***********************************/
 app.post("/get-stocks-db", function(request, response) {
   stockModel.find(function (err, documents) {
                   if (!err) response.json(documents);
                 });
+});
+/***********************************/
+app.post("/get-stock", function(request, response) {
+            yahooFinance.historical({
+                            symbol: request.body["stock"],
+                            from: '2012-01-01',
+                            to: '2018-01-01',
+                          }, function (err, quotes) {
+                                      response.json(quotes);
+                          });
 });
 /***********************************/
